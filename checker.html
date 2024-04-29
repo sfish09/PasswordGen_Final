@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Tester</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Password Strength Tester</h1>
+        <input type="password" id="password" placeholder="Enter your password" oninput="testPassword()">
+        <div id="password-strength"></div>
+    </div>
+    <script>
+        function testPassword() {
+            var password = document.getElementById("password").value;
+
+            const regex = {
+                uppercase: /[A-Z]/,
+                lowercase: /[a-z]/,
+                numbers: /[0-9]/,
+                specialChars: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
+            };
+
+        
+            const criteria = {
+                minLength: 8,
+                minUppercase: 1,
+                minLowercase: 1,
+                minNumbers: 1,
+                minSpecialChars: 1,
+            };
+
+            var strength = "Weak";
+
+
+            if (password.length >= criteria.minLength) {
+                strength = "Strong";
+
+                if (!regex.uppercase.test(password)) {
+                    strength = "Weak (no uppercase letters)";
+                }
+                if (!regex.lowercase.test(password)) {
+                    strength = "Weak (no lowercase letters)";
+                }
+                if (!regex.numbers.test(password)) {
+                    strength = "Weak (no numbers)";
+                }
+               
+                if (!regex.specialChars.test(password)) {
+                    strength = "Weak (no special characters)";
+                }
+            }
+
+           
+            document.getElementById("password-strength").innerText = "Password Strength: " + strength;
+        }
+    </script>
+</body>
+</html>
