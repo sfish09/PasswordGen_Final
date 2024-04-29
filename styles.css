@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(172, 208, 240);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#container {
+    text-align: center;
+    background-color: aliceblue;
+    padding: 3rem;
+    border: 2px solid rgb(1, 1, 19);
+}
+#password {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+input[type="number"] {
+    margin-bottom: 10px;
+    size-adjust: 50px;
+    width: 250px;
+    text-align: center;
+}
